@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SummarySCAI",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ResourceDescriptor"
+      }
+    },
+    "predicateType": {
+      "type": "string"
+    },
+    "predicate": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "attribute": {
+                "type": "string",
+                "enum": [
+                  "PASSED_DEVELOPMENT_ENVIRONMENT",
+                  "PASSED_SOURCE",
+                  "PASSED_BUILD",
+                  "PASSED_PACKAGE",
+                  "PASSED_DEPLOY"
+                ]
+              },
+              "conditions": {
+                "type": "object",
+                "properties": {
+                  "policy": {
+                    "type": "string"
+                  }
+                }
+              },
+              "evidence": {
+                "$ref": "#/$defs/ResourceDescriptor"
+              }
+            },
+            "required": ["attribute", "evidence"]
+          }
+        },
+        "producer": {
+          "$ref": "#/$defs/ResourceDescriptor"
+        }
+      },
+      "required": ["attributes", "producer"]
+    }
+  },
+  "required": ["_type", "subject", "predicateType", "predicate"],
+  "$defs": {
+    "ResourceDescriptor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "object",
+          "properties": {
+            "sha256": {
+              "type": "string"
+            }
+          },
+          "required": ["sha256"]
+        },
+        "content": {
+          "type": "string"
+        },
+        "downloadLocation": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "anyOf": [
+        {
+          "required": ["uri"]
+        },
+        {
+          "required": ["digest"]
+        },
+        {
+          "required": ["content"]
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}
