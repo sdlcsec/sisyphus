@@ -17,8 +17,7 @@ pub struct CDEvent {
 pub enum CDEventType {
     AttestationCreated {
         attestation_id: String,
-        #[serde(skip_serializing, skip_deserializing)]
-        attestation: Arc<Attestation>,
+        attestation_uri: String,
     },
     AttestationVerified {
         attestation_id: String,
@@ -112,7 +111,7 @@ mod tests {
         let event = CDEvent::new(
             CDEventType::AttestationCreated {
                 attestation_id: attestation.id.clone(),
-                attestation: attestation.clone(),
+                attestation_uri: "http://example.com/attestations/att123".to_string(),
             },
             EventSubject {
                 id: attestation.id.clone(),
