@@ -65,7 +65,7 @@ where
 
         self.pending_attestations
             .entry(subject.clone())
-            .or_insert_with(Vec::new)
+            .or_default()
             .push(attestation_uri.clone());
 
         // Check if we have all required attestations for this subject

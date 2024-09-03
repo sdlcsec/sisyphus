@@ -1,3 +1,3 @@
 mod policy_verifier;
 
-pub use policy_verifier::{PolicyVerifier, SimplePolicyVerifier};
+pub use policy_verifier::PolicyVerifier;

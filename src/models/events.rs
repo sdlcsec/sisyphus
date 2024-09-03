@@ -1,7 +1,5 @@
 use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
-use std::sync::Arc;
-use crate::models::Attestation;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CDEvent {

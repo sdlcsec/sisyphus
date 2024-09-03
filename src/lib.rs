@@ -29,11 +29,8 @@ mod cbp;
 mod storage;
 mod verification;
 
-use std::{error::Error, fmt::{self, Display}, marker::PhantomData, rc::Rc};
+use std::fmt::{self, Display};
 
-use models::summary_scai::{SummaryScai, SummaryScaiPredicateAttributesItem, SummaryScaiPredicateAttributesItemAttribute};
-use serde::de::IntoDeserializer;
-use sha2::{Digest, Sha256, Sha256VarCore};
 use thiserror::Error;
 struct Uninitialized;
 
