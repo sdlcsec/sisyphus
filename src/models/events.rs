@@ -95,6 +95,10 @@ impl CDEvent {
 
 #[cfg(test)]
 mod tests {
+    use std::sync::Arc;
+
+    use crate::models::Attestation;
+
     use super::*;
 
     #[test]

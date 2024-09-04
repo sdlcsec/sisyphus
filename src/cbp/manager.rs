@@ -203,7 +203,6 @@ where
 mod tests {
     use super::*;
     use crate::storage::{InMemoryAttestationStorage, InMemoryPolicyRepository};
-    use crate::verification::SimplePolicyVerifier;
     use crate::models::PolicyRules;
 
     struct MockPolicyVerifier;

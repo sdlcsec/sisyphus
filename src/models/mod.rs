@@ -4,5 +4,5 @@ mod policy;
 mod events;
 
 pub use attestation::Attestation;
-pub use policy::Policy;
+pub use policy::{Policy, PolicyRules};
 pub use events::{CDEvent, CDEventType, EventSubject, SubjectType};
