@@ -24,10 +24,11 @@
  * 17. Deploy server pulls the build artifacts
  * 18. Deploy server deploys the build artifacts
  */
-mod models;
-mod cbp;
-mod storage;
-mod verification;
+pub mod models;
+pub mod cbp;
+pub mod storage;
+pub mod verification;
+pub mod controlplane;
 
 use std::fmt::{self, Display};
 

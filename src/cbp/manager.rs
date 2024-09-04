@@ -8,7 +8,7 @@ use crate::models::policy::Policy;
 use crate::models::attestation::Attestation;
 use crate::storage::attestation_storage::AttestationStorage;
 use crate::storage::policy_repository::PolicyRepository;
-use crate::verification::PolicyVerifier;
+use crate::verification::policy_verifier::PolicyVerifier;
 
 pub struct CBPManager<P, A>
 where
