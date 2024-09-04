@@ -4,7 +4,7 @@ use std::error::Error;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use semver::Version;
-use crate::models::Policy;
+use crate::models::policy::Policy;
 
 #[async_trait]
 pub trait PolicyRepository: Send + Sync {
@@ -107,7 +107,7 @@ impl PolicyRepository for InMemoryPolicyRepository {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::models::PolicyRules;
+    use crate::models::policy::PolicyRules;
 
     #[tokio::test]
     async fn test_in_memory_policy_repository() {

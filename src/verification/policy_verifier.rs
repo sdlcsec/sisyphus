@@ -2,7 +2,7 @@ use async_trait::async_trait;
 use chrono::{Duration, Utc};
 use std::error::Error;
 
-use crate::models::{Attestation, Policy};
+use crate::models::{attestation::Attestation, policy::Policy};
 
 #[async_trait]
 pub trait PolicyVerifier: Send + Sync {
@@ -57,7 +57,7 @@ impl PolicyVerifier for SimplePolicyVerifier {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::models::PolicyRules;
+    use crate::models::policy::PolicyRules;
     use serde_json::json;
 
     #[tokio::test]

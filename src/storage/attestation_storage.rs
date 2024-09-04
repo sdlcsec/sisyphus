@@ -5,7 +5,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use url::form_urlencoded;
 use sha2::{Sha256, Digest};
-use crate::models::Attestation;
+use crate::models::attestation::Attestation;
 
 #[async_trait]
 pub trait AttestationStorage: Send + Sync {

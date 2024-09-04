@@ -3,8 +3,11 @@ use std::sync::Arc;
 use tokio::sync::mpsc;
 use serde_json::{json, Value};
 use std::collections::HashMap;
-use crate::models::{Attestation, Policy, CDEvent, CDEventType, EventSubject, SubjectType};
-use crate::storage::{PolicyRepository, AttestationStorage};
+use crate::models::events::{CDEvent, CDEventType, EventSubject, SubjectType};
+use crate::models::policy::Policy;
+use crate::models::attestation::Attestation;
+use crate::storage::attestation_storage::AttestationStorage;
+use crate::storage::policy_repository::PolicyRepository;
 use crate::verification::PolicyVerifier;
 
 pub struct CBPManager<P, A>
@@ -202,8 +205,9 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::storage::{InMemoryAttestationStorage, InMemoryPolicyRepository};
-    use crate::models::PolicyRules;
+    use crate::storage::attestation_storage::InMemoryAttestationStorage;
+    use crate::storage::policy_repository::InMemoryPolicyRepository;
+    use crate::models::policy::PolicyRules;
 
     struct MockPolicyVerifier;
 

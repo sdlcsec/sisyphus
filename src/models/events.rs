@@ -97,7 +97,7 @@ impl CDEvent {
 mod tests {
     use std::sync::Arc;
 
-    use crate::models::Attestation;
+    use crate::models::attestation::Attestation;
 
     use super::*;
 
